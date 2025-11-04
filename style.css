@@ -1,0 +1,46 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1; /* Prend tout l'espace disponible restant */
+}
+header{
+    background-color: aqua;
+    border-bottom: solid 4px blue;
+}
+
+footer{
+    background-color: aqua;
+    border-top: solid 4px blue;
+}
+
+h1, h2, h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: blueviolet!important;
+}
+
+.pictureBear img{
+    height: 80px;
+    width: 80px;
+    border: solid 1px blueviolet;
+    border-radius: 25%;
+
+}
+
+#cam img{
+    height: 300px;
+    width: 300px;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    border: solid 2px green;
+}
