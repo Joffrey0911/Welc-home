@@ -1,8 +1,11 @@
 <?php
 
-include'add_pet.php'
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,7 +24,7 @@ include'add_pet.php'
                 <nav class='container d-flex justify-content-end align-items-center py-3 d-grid gap-2'>
                     <a href='login.php' class="btn btn-outline-primary">Liste des animaux</a>
                     <a href='#' class="btn btn-outline-primary" id='btn_add_pet'>Ajouter animaux</a>
-                    <a href='main.php' class="btn btn-outline-primary">Accueil</a>
+                    <a href='main.html' class="btn btn-outline-primary">Accueil</a>
                 </nav>
             </div>
         </header>
@@ -35,9 +38,9 @@ include'add_pet.php'
                             <img src="assets/pexels-pixabay-62289.jpg" alt ='image cameleon'>
                     </div>
                 </div>
-                <div class='col-12 col-sm-8 col-md-6 col-lg-4 mt-5 border border-3 border border-primary rounded-3 p-3 d-none' id='form_pet'>
+                <div class='col-12 col-sm-8 col-md-6 col-lg-4 mt-5 border border-3 border border-primary rounded-3 p-3 d-none' id='form_pet_container'>
                     <h3 class='text-center'>Ajoutez un animal</h3>
-                    <form class='d-grid gap-2'  method='POST'>
+                    <form class='d-grid gap-2' id='form_pet' method='POST'>
                         <input class="form-control border border-primary rounded" name="pet_name" id='pet_name' type="text" placeholder="Entrez le nom de l'animal">
                         <input class="form-control border border-primary rounded" name="type" id='type' type="text" placeholder="Entrez le type de l'animal">
                         <p class='text-center mt-2' style='color: blueviolet'>Genre de l'animal</p>
@@ -56,10 +59,9 @@ include'add_pet.php'
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
+                    <div id='message' class='text-center mt-3'></div>
                 </div>
-                <div class='text-center mt-2' style='color: red' id='error_message'></div>
-                <div class='text-center mt-2' style='color: green'></div>
-                <?php if(!empty($message)) echo $message; ?>
+                
 
             </div>
         </section>

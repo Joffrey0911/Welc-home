@@ -1,8 +1,9 @@
 <?php
 
-
+    
+    
     $host = 'localhost';
-    $database = 'welc\'home';
+    $database = 'welchome';
     $user = 'root';
     $pass = '';
 
@@ -12,10 +13,8 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
     }catch (PDOException $e){
-        die('Erreur de connexion à la base de données :'.$e->getMessage());
-    }
-
-
+        die('Erreur de connexion à la base de données : ' . $e->getMessage());
+    };
 
 
 ?>
