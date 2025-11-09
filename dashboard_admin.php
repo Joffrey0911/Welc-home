@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="pictureBear">
                 <img src="assets/ai-generated-8577262_640.png" alt="image d'ours">
                 <nav class='container d-flex justify-content-end align-items-center py-3 d-grid gap-2'>
-                    <a href='login.php' class="btn btn-outline-primary">Liste des animaux</a>
+                    <a href='login.php' class="btn btn-outline-primary" id='btn_list_pet'>Liste des animaux</a>
                     <a href='#' class="btn btn-outline-primary" id='btn_add_pet'>Ajouter animaux</a>
                     <a href='main.html' class="btn btn-outline-primary">Accueil</a>
                 </nav>
@@ -38,35 +38,59 @@ if (!isset($_SESSION['user_id'])) {
                             <img src="assets/pexels-pixabay-62289.jpg" alt ='image cameleon'>
                     </div>
                 </div>
-                <div class='col-12 col-sm-8 col-md-6 col-lg-4 mt-5 border border-3 border border-primary rounded-3 p-3 d-none' id='form_pet_container'>
-                    <h3 class='text-center'>Ajoutez un animal</h3>
-                    <form class='d-grid gap-2' id='form_pet' method='POST'>
-                        <input class="form-control border border-primary rounded" name="pet_name" id='pet_name' type="text" placeholder="Entrez le nom de l'animal">
-                        <input class="form-control border border-primary rounded" name="type" id='type' type="text" placeholder="Entrez le type de l'animal">
-                        <p class='text-center mt-2' style='color: blueviolet'>Genre de l'animal</p>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="Mâle" checked>
-                            <label class="form-check-label" for="male">Mâle</label>
+                <div class='col-12 col-md-6 d-flex justify-content-center align-items-center' id='container_wrap'>
+                    <div class="position-relative w-75">
+                        <div class='col-12 col-sm-8 col-md-6 col-lg-4 mt-5 position-absolute top-50 start-50 translate-middle  w-100 border border-3 border border-primary rounded-3 p-3 d-none' id='form_pet_container'>
+                            <h3 class='text-center'>Ajoutez un animal</h3>
+                            <form class='d-grid gap-2' id='form_pet' method='POST'>
+                                <input class="form-control border border-primary rounded" name="pet_name" id='pet_name' type="text" placeholder="Entrez le nom de l'animal">
+                                <input class="form-control border border-primary rounded" name="type" id='type' type="text" placeholder="Entrez le type de l'animal">
+                                <p class='text-center mt-2' style='color: blueviolet'>Genre de l'animal</p>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="Mâle" checked>
+                                    <label class="form-check-label" for="male">Mâle</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="Femelle">
+                                    <label class="form-check-label" for="female">Femelle</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="unknown" value="Inconnu">
+                                    <label class="form-check-label" for="unknown">Inconnu</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </form>
+                            <div id='message' class='text-center mt-3'></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="Femelle">
-                            <label class="form-check-label" for="female">Femelle</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="unknown" value="Inconnu">
-                            <label class="form-check-label" for="unknown">Inconnu</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Valider</button>
-                    </form>
-                    <div id='message' class='text-center mt-3'></div>
-                </div>
-                
+                    <div class='col-12 col-sm-8 col-md-6 col-lg-4 mt-5 position-absolute top-50 start-50 translate-middle  w-100 d-none' id='list_pet_container'>
+                        <h3 class='text-center mb-5'>Liste des animaux</h3>
 
-            </div>
-        </section>
-    </main>
+                        <table class="table table-bordered text-center" id="pets_table">
+                            <thead class="table-primary">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Genre</th>
+                                <th>Actions</th> 
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Les lignes seront ajoutées par JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </main>
         <script src="script.js"></script>
     </body>
 </html>
-               
+                   
+                    
+                
+            
+            
+
