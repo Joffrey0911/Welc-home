@@ -11,22 +11,30 @@ body{
 main{
     flex-grow: 1; /* Prend tout l'espace disponible restant */
 }
-header{
-    background-color: aqua;
-    border-bottom: solid 4px blue;
-}
 
-footer{
-    background-color: aqua;
-    border-top: solid 4px blue;
-}
+
+
 
 h1, h2, h3{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     color: blueviolet!important;
 }
+/*STYLE PAGE ACCUEIL */
 
+#home_page{
+    background: url('assets/imgbird.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    z-index: 0;
+}
+#home_header{
+    z-index: 1;
+}
+
+#home_page .pictureBear{
+    z-index: 2;
+}
 .pictureBear img{
     height: 80px;
     width: 80px;
@@ -35,12 +43,253 @@ h1, h2, h3{
 
 }
 
-#cam img{
-    height: 300px;
-    width: 300px;
-    border-top-left-radius: 25%;
-    border-top-right-radius: 15%;
-    border-bottom-left-radius: 15%;
-    border-bottom-right-radius: 15%;
-    border: solid 2px green;
+#describe{
+    display: inline-block;               
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 12rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    min-width: 300px;
+    max-width: 90vw; 
+}
+
+
+.pet-name.male {
+  color: blue !important;
+  font-weight: 600;
+}
+
+.pet-name.female {
+  color: deeppink !important;
+  font-weight: 600;
+}
+
+.pet-name.unknown {
+  color: black !important;
+  font-weight: 600;
+}
+
+
+
+.table-responsive {
+    overflow-y: auto; /* scroll uniquement pour le tableau */
+    max-height: 400px;
+}
+
+
+#pets_table {
+    scroll-margin-top: 100px; /* espace entre le top de la page et le tableau */
+}
+@media (min-width: 992px) {
+body {
+    overflow: hidden; /* body ne scroll pas */
+}
+}
+
+
+#title_register{
+    font-size: 3.5rem;
+    color: #F58427 !important;
+}
+
+#register_page {
+        background: url('assets/hibou.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+
+/*#form_register{
+    background-color:rgba(255,255,255,0.2)!important;
+    padding: 2em;
+    border-radius: 25%;
+   
+};*/
+
+/*#divform{
+    display: inline-block;
+    background-color:rgba(255,255,255,0.2)!important;
+    padding: 1rem 1.5rem;
+    border-radius: 10%;
+    min-width: 300px; 
+    max-width: 90vw;
+    box-sizing: border-box; 
+}
+
+
+
+
+input.form-control {
+    background-color: rgba(255, 255, 255, 0.7); 
+    font-weight: bolder;
+    color: #F58427 !important;
+    border: solid 2px rgba(245, 132, 39, 0.7) !important; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+input.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.7); 
+    font-weight: bolder;
+    color: #F58427 !important;
+    border: solid 2px rgba(245, 132, 39, 0.7) !important; 
+}
+
+
+    */
+
+    #divform {
+    display: inline-block;               
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 12rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    min-width: 300px;
+    max-width: 90vw;    
+}
+
+input.form-control {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-weight: bolder;
+    color: #F58427;
+    border: solid 2px rgba(245, 132, 39, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: solid 2px rgba(245, 132, 39, 0.7);
+    box-shadow: none;
+}
+
+#btn_register {
+    background-color: rgba(245, 132, 39, 0.7) !important; 
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#btn_register:hover{
+    background-color: rgba(245, 132, 39, 0.9) !important; /* Couleur au survol */
+}
+
+#register_page nav a{
+    background-color: rgba(245, 132, 39, 0.7) !important; /* 0.9 au lieu de 0.5 */
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#register_page nav a:hover{
+    background-color: rgba(245, 132, 39, 0.9) !important; /* Couleur au survol */
+}
+/*CLASSE JAVASCRIPT MESSAGE */
+
+.colormessage{
+    font-weight: bolder;
+    color:#F58427!important ;
+}
+
+.errormessage{
+    font-weight: bolder;
+    color: red;
+}
+#login_page .colormessage{
+    font-weight: bolder;
+    color:rgb(26,107,150)!important ;
+
+}
+
+/* STYLE PAGE DE CONNEXION */
+
+
+
+#login_page {
+        background: url('assets/imgours.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+#login_page #title_register{
+    font-size: 4rem;
+    color: rgba(26,107,150,0.6) !important;
+}
+/*
+#login_page #form_connexion{
+    background-color: rgba(26,107,150,0.3)!important;
+   
+};
+
+
+#login_page input.form-control {
+    background-color: rgba(255, 255, 255, 0.7); 
+    font-weight: bolder;
+    color: rgba(26,107,150,0.3);
+    border: solid 2px rgba(26,107,150,0.3)!important; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+#login_page input.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.7); 
+    font-weight: bolder;
+    color: rgba(26,107,150,0.3);
+    border: solid 2px rgba(26,107,150,0.7) !important; 
+}
+
+
+ */   
+
+#login_page #divform {
+    display: inline-block;               
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 12rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    min-width: 300px;
+    max-width: 90vw;    
+}
+
+#login_page input.form-control {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-weight: bolder;
+    color: rgba(26,107,150,0.6);
+    border: solid 2px rgba(26,107,150,0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#login_page input.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: solid 2px rgba(26,107,150,0.7);
+    box-shadow: none;
+}
+#login_page #btn_login {
+    background-color: rgba(26,107,150,0.7) !important; 
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#login_page #btn_login:hover{
+    background-color: rgba(26,107,150,0.9) !important; 
+}
+
+#login_page #btn_home{
+    background-color: rgba(26,107,150,0.7) !important; 
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#login_page #btn_home:hover{
+    background-color: rgba(26,107,150,0.9) !important; 
 }

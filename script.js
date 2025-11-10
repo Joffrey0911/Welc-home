@@ -20,6 +20,9 @@ if (btnAddPet && FormContainer){
 
     ListPet.classList.add('d-none'); // cache la liste
     ListPet.classList.remove('d-block');
+
+    const Add = document.querySelector('#form_pet');
+    Add.scrollIntoView({ behavior: 'smooth', block: 'center' });
 })
 };
 
@@ -31,6 +34,9 @@ if (btnListPet && ListPet){
 
     FormContainer.classList.add('d-none'); // cache le formulaire
     FormContainer.classList.remove('d-block');
+
+    const table = document.querySelector('#pets_table');
+    table.scrollIntoView({ behavior: 'smooth', block: 'center' });
 })
 };
 
@@ -78,7 +84,11 @@ fetch('add_pet.php',{
 })
 });
 };
-//formulaire de connexion user//
+//formulaire de connexion //
+
+
+
+
 
 if(FormCo){
 
@@ -88,20 +98,24 @@ FormCo.addEventListener('submit', function(e){
 
     const formData = new FormData(this);
     const msg = document.getElementById('message');
-    
+   
     fetch('login_process.php',{
         method: 'POST',
         body: formData
     })
     .then(res=>res.json())
     .then(data=>{
+        
    
         msg.textContent = '';
         msg.className = 'text-center mt-3';
 
-        if(data.success === true){
-           
+        if(data.success === true && data.role_id == 1){
+
+
             window.location.href='dashboard_admin.php';
+        }else if(data.success === true && data.role_id == 0){
+             window.location.href='dashboard_user.php';
         }else{
             msg.textContent = data.message;
              msg.classList.add('text-danger');
@@ -110,6 +124,8 @@ FormCo.addEventListener('submit', function(e){
 
 });
 };
+
+
 
 
          //Afficher tableau des animaux //
@@ -127,21 +143,94 @@ async function loadPets() {
             return;
         }
 
-        pets.forEach(pet => {
-            const row = `
-                <tr>
-                    <td>${pet.id}</td>
-                    <td>${pet.name}</td>
-                    <td>${pet.type}</td>
-                    <td>${pet.gender}</td>
-                </tr>
-            `;
-            tbody.innerHTML += row;
+       pets.forEach(pet => {
+         
+        const tbody = document.querySelector('#pets_table tbody');
+  
+        const row = document.createElement('tr');
+
+
+            let genderClass = '';
+        if (pet.gender === 'Mâle') {
+            genderClass = 'male';
+        } else if (pet.gender === 'Femelle') {
+            genderClass = 'female';
+        } else {
+            genderClass = 'unknown';
+        }
+
+    
+            //Classe name pour modifier le style en fonction du genre //
+            row.innerHTML = `
+            <td>${pet.id}</td>
+            <td class="pet-name ${genderClass}">${pet.name}</td>  
+            <td>${pet.type}</td>
+            <td>${pet.gender}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="deletePet(${pet.id}, this)">Supprimer</button>
+            </td>`;
+ 
+
+            tbody.appendChild(row);
         });
 
     } catch (error) {
         console.error('Erreur lors du chargement des animaux :', error);
     }
 }
-
+const tbody = document.querySelector('#pets_table tbody');
+if (tbody) {
+    tbody.innerHTML = '';
 loadPets();
+}
+
+     //FONCTION DE SUPPRESSION DE L'ANIMAL//
+
+async function deletePet(id, btn){
+    if (!confirm('Voulez vous vraiment supprimer cet animal?')) return;
+
+    try{
+        const response = await fetch('delete_pets.php',{
+            method : 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `id=${id}`
+    });
+
+        const result = await response.json();
+        if (result.success) {
+      // Supprime la ligne du tableau
+      const row = btn.closest('tr');
+      row.remove();
+      alert("Animal supprimé avec succès !");
+    } else {
+      alert("Erreur : " + result.message);
+    }
+
+  } catch (error) {
+    console.error("Erreur lors de la suppression :", error);
+  }
+};
+        
+    
+ //RECHERCHE ANIMAL//
+
+ // Fonction pour filtrer les animaux par nom
+function filterPetsByName() {
+  const searchValue = document.querySelector('#search_pet').value.toLowerCase();
+  const rows = document.querySelectorAll('#pets_table tbody tr');
+
+  rows.forEach(row => {
+    const nameCell = row.querySelector('td.pet-name');
+    if (!nameCell) return; // sécurité
+    const name = nameCell.textContent.toLowerCase();
+    // Si le nom contient la valeur recherchée, on affiche la ligne, sinon on la cache
+    row.style.display = name.includes(searchValue) ? '' : 'none';
+  });
+}
+
+// On écoute l'événement input du champ de recherche
+const searchInput = document.querySelector('#search_pet');
+if (searchInput) {
+    searchInput.addEventListener('input', filterPetsByName);
+}
+
