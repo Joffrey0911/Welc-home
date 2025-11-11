@@ -8,37 +8,76 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
     <title>Welc'home</title>
 </head>
 <body id="home_page">
-    <header class="container-fluid" id="home_header">
-        <h1 class='d-flex justify-content-center'>Welc'home</h1>
-        <div class="pictureBear">
-            <img src="assets/ai-generated-8577262_640.png" alt="image d'ours">
-            <nav class='container d-flex justify-content-end align-items-center py-3 d-grid gap-2'>
-                <a href='login.php' class="btn btn-outline-primary">Nous contacter</a>
-                <a href='login.php' class="btn btn-outline-primary">Liste des animaux</a>
-                <a href='register.html' class="btn btn-outline-primary">Inscription</a>
-                <a href='login.html' class="btn btn-outline-primary">Connexion</a>
-            </nav>
+  
+<header class="container-fluid" id="home_header">
+  <h1 class="d-flex justify-content-center mb-4">Welc'home</h1>
+
+  <nav class="navbar navbar-expand-md p-0">
+    <div class="container-fluid d-flex align-items-center">
+      
+     
+      
+      <button class="navbar-toggler d-md-none me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarButtons"
+        aria-controls="navbarButtons" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        </button>
+
+      
+      <div class="collapse navbar-collapse justify-content-md-end" id="navbarButtons">
+        <div class="d-flex flex-column flex-md-row gap-2 border-bottom pb-2">
+          <a href="login.php" class="btn">Nous contacter</a>
+          <a href="login.php" class="btn">Liste des animaux</a>
+          <a href="register.html" class="btn">Inscription</a>
+          <a href="login.html" class="btn">Connexion</a>
         </div>
-    </header>
-    <main class='d-flex justify-content-center mt-5'>
-        <div class="container" id="describe">
-            <h2 class="text-center">Présentation de notre refuge</h2>
-                <p class="text-center text-success mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores tenetur eveniet neque iure sit, minus corporis id numquam aperiam, suscipit nemo delectus placeat ab vel? Ullam omnis ipsa rerum enim.</p>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+
+
+
+    <main>
+        <div class="container mt-5" id="describe">
             
+            <div class="row">
+                <h2 class="text-center text-lg-start">Présentation de notre refuge</h2>
+                <div class='col-12 col-lg-5  mt-4'>
+                    <p class="text-center text-lg-start mt-4" id="describe_text">Bienvenue à <strong>Welc'home</strong>, un lieu dédié à la protection,
+                        au soin et à l'adoption des animaux abandonnés.<br><br>
+                        Chaque jour, notre équipe de passionnés œuvre pour offrir une seconde chance
+                        à des chiens, chats et autres compagnons en quête d'amour et de sécurité.<br><br>
+                        Notre mission est simple : <em>recueillir, soigner et replacer</em> ces animaux
+                        dans des familles bienveillantes. En adoptant chez nous, vous ne sauvez pas
+                        qu'une vie  vous gagnez un ami fidèle et reconnaissant. ❤️<br><br>
+                        Venez nous rencontrer et laissez-vous toucher par le regard
+                        de ceux qui attendent leur nouvelle maison.</p>
+                </div>
+            </div>
         </div>
-        
-        
     </main>
+    <script src="script.js"></script>
+</body>
+</html>
+   
+    
 
     
             
             
         
-    
-     <script src="script.js"></script>
-</body>
-</html>
+            
+            
+                    
+            
 

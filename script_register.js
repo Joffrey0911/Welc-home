@@ -24,7 +24,7 @@ formRegister.addEventListener('submit', async (e) => {
                 window.location.href = 'dashboard_user.php';
             }, 3000);
         } else {
-            registerMessage.textContent = result.error;
+        registerMessage.textContent = result.error;
         registerMessage.classList.add('errormessage');
         }
     } catch (error) {

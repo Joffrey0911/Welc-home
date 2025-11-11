@@ -13,12 +13,24 @@ main{
 }
 
 
+h1 {
+  font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700; 
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  color: rgba(26, 107, 150)!important;
+}
+
+    
+    
+  
 
 
-h1, h2, h3{
+h2, h3{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-    color: blueviolet!important;
+    color:rgb(26,107,150)
 }
 /*STYLE PAGE ACCUEIL */
 
@@ -32,9 +44,44 @@ h1, h2, h3{
     z-index: 1;
 }
 
-#home_page .pictureBear{
-    z-index: 2;
+
+.navbar-toggler {
+  border: none!important;        
+  background: transparent;
+  padding: 0;
+  width: 50px;         
+  height: 50px;
+  outline: none;      
+  box-shadow: none;
 }
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+.burger-line {
+  display: block;
+  width: 40px;          
+  height: 5px;          
+  background-color: rgba(26,107,150,0.7); 
+  margin: 6px 0;       
+  border-radius: 2px;  
+}
+
+
+
+#navbarButtons a.btn {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  #navbarButtons {
+    margin-top: 10px;
+  }
+}
+
 .pictureBear img{
     height: 80px;
     width: 80px;
@@ -42,10 +89,22 @@ h1, h2, h3{
     border-radius: 25%;
 
 }
+#home_page nav a{
+    background-color: rgba(26,107,150,0.6)!important; 
+    color: white !important;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#home_page nav a:hover{
+    background-color: rgba(26,107,150,0.9)!important; 
+}
+
 
 #describe{
     display: inline-block;               
-    background-color: rgba(255, 255, 255, 0.2);
     padding: 1rem 1.5rem 1rem 1.5rem;
     margin-bottom: 12rem;
     border-radius: 1rem;
@@ -55,6 +114,24 @@ h1, h2, h3{
 }
 
 
+
+#describe h2, p{
+    font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 300; 
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  color: rgb(26, 107, 150);
+}
+#cam img{
+    height: 300px;
+    width: 300px;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    border: solid 2px green;
+}
 .pet-name.male {
   color: blue !important;
   font-weight: 600;
@@ -82,7 +159,7 @@ h1, h2, h3{
     scroll-margin-top: 100px; /* espace entre le top de la page et le tableau */
 }
 @media (min-width: 992px) {
-body {
+#admin_page, #home_page{
     overflow: hidden; /* body ne scroll pas */
 }
 }

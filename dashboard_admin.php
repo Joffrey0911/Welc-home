@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role_id']) || $_SESSION['r
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <title>Welc'home</title>
 </head>
-    <body>
+    <body id='admin_page'>
         <header class="container-fluid">
             <h1 class='d-flex justify-content-center'>Welc'home</h1>
             <div class="pictureBear">
