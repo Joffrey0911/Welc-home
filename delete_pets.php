@@ -1,7 +1,17 @@
 <?php
 
+session_start();
 header('Content-Type: application/json');
 include('config.php');
+
+
+if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != 1) {
+    echo json_encode([
+        'success' => false,
+        'message' => "Accès interdit : vous n'êtes pas administrateur"
+    ]);
+    exit;
+}
 
 if (!isset($_POST['id'])) {
     echo json_encode(['success' => false, 'message' => 'ID non fourni']);

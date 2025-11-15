@@ -3,10 +3,10 @@ html, body{
     margin: 0;
 }
 
-body{
+/*body{
     display: flex;
     flex-direction: column;
-}
+}*/
 
 main{
     flex-grow: 1; /* Prend tout l'espace disponible restant */
@@ -22,9 +22,19 @@ h1 {
   color: rgba(26, 107, 150)!important;
 }
 
-    
-    
-  
+#picture{
+    height: 150px;
+    width: 150px;
+    border: solid 2px rgb(26, 107, 150)!important;
+}   
+#picture img {
+    width: 100%;   
+    height: 100%; 
+    display: block;
+    margin: 0 auto;    
+    object-fit: cover; 
+}
+
 
 
 h2, h3{
@@ -40,8 +50,20 @@ h2, h3{
     min-height: 100vh;
     z-index: 0;
 }
-#home_header{
+#user_page{
+    background: url('assets/cat.jpg')no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    z-index: 0;
+}
+#home_header,
+#user_header{
     z-index: 1;
+}
+
+#containerProfil{
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 0;
 }
 
 
@@ -89,7 +111,24 @@ h2, h3{
     border-radius: 25%;
 
 }
-#home_page nav a{
+
+#btn_profil{
+    width: 150px!important;
+}
+
+#btn_form_profil{
+
+    background-color: rgba(26,107,150,0.6)!important; 
+    color: white !important;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+#home_page nav a,
+#user_page nav a,
+#btn_profil,
+#btn_photo{
     background-color: rgba(26,107,150,0.6)!important; 
     color: white !important;
     font-weight: bolder;
@@ -98,7 +137,10 @@ h2, h3{
     transition: background 0.3s ease;
 }
 
-#home_page nav a:hover{
+#home_page nav a:hover,
+#user_page nav a:hover,
+#btn_profil:hover,
+#btn_photo:hover{
     background-color: rgba(26,107,150,0.9)!important; 
 }
 
@@ -115,13 +157,14 @@ h2, h3{
 
 
 
-#describe h2, p{
-    font-family: "DynaPuff", system-ui;
+#describe h2, p,
+#user_page h2, h3{
+font-family: "DynaPuff", system-ui;
   font-optical-sizing: auto;
   font-weight: 300; 
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  color: rgb(26, 107, 150);
+  color: rgb(26, 107, 150)!important;
 }
 #cam img{
     height: 300px;
@@ -163,8 +206,6 @@ h2, h3{
     overflow: hidden; /* body ne scroll pas */
 }
 }
-
-
 #title_register{
     font-size: 3.5rem;
     color: #F58427 !important;
@@ -370,3 +411,6 @@ input.form-control:focus {
 #login_page #btn_home:hover{
     background-color: rgba(26,107,150,0.9) !important; 
 }
+
+/* STYLE PAGE USER*/
+

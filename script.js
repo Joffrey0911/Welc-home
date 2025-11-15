@@ -12,6 +12,7 @@ const ListPet = document.getElementById('list_pet_container');
 
 
 
+
 if (btnAddPet && FormContainer){
  btnAddPet.addEventListener('click', function(event){
     event.preventDefault();
@@ -157,7 +158,14 @@ async function loadPets() {
             genderClass = 'female';
         } else {
             genderClass = 'unknown';
+            
         }
+        let actionButton = '';
+            if (userRole === 1) { 
+                actionButton = `<button class="btn btn-danger btn-sm" onclick="deletePet(${pet.id}, this)">Supprimer</button>`;
+            } else {
+                actionButton = `<button class="btn btn-success btn-sm" onclick="adoptPet(${pet.id})">Adopter</button>`;
+            }
 
     
             //Classe name pour modifier le style en fonction du genre //
@@ -167,7 +175,7 @@ async function loadPets() {
             <td>${pet.type}</td>
             <td>${pet.gender}</td>
             <td>
-                <button class="btn btn-danger btn-sm" onclick="deletePet(${pet.id}, this)">Supprimer</button>
+                ${actionButton}
             </td>`;
  
 
@@ -183,6 +191,8 @@ if (tbody) {
     tbody.innerHTML = '';
 loadPets();
 }
+
+
 
      //FONCTION DE SUPPRESSION DE L'ANIMAL//
 
@@ -234,3 +244,79 @@ if (searchInput) {
     searchInput.addEventListener('input', filterPetsByName);
 }
 
+//UPDATE PHOTO USER//
+
+/*const photoButton = document.getElementById('btn_photo');
+const phot = document.getElementById('photo');
+const messageProfil = document.getElementById('message_profil_form');
+const buttonSubmitPhoto = document.getElementById('btn_form_profil');
+const formProfil = document.getElementById('profilForm');
+
+
+if (formProfil) {
+    formProfil.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const fileInput = document.getElementById('photo');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            messageProfil.innerHTML = "<p class='text-danger'>Veuillez choisir une image.</p>";
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append('photo', file);
+
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.success) {
+                messageProfil.textContent = data.message;
+                messageProfil.style.color = 'green';
+                formProfil.reset();
+
+                setTimeout(() => {
+                    messageProfil.textContent = "";
+                }, 3000);
+
+            } else {
+                messageProfil.textContent = data.message;
+                messageProfil.style.color = 'red';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur :', error);
+            messageProfil.textContent = 'Erreur de communication avec le serveur.';
+            messageProfil.style.color = 'red';
+        });
+    });
+}
+*/
+
+const btnUserListPet = document.getElementById('btn_user_listpet');
+const Profil = document.getElementById('btn_profil');
+
+const zoneProfil = document.getElementById('zoneProfil');
+const zoneTableau = document.getElementById('zoneTableau');
+const dynamicContainer = document.getElementById('dynamicContainer');
+
+// Afficher formulaire profil
+Profil.addEventListener('click', () => {
+    dynamicContainer.classList.remove('d-none');
+
+    zoneProfil.classList.remove('d-none');
+    zoneTableau.classList.add('d-none');
+});
+
+// Afficher tableau des animaux
+btnUserListPet.addEventListener('click', () => {
+    dynamicContainer.classList.remove('d-none');
+
+    zoneProfil.classList.add('d-none');
+    zoneTableau.classList.remove('d-none');
+});
